@@ -30,7 +30,7 @@ export default function ProfissionalItem(props: ProfissionalItemProps) {
         <div className="flex gap-3 flex-wrap">
           <Avaliacao
             valor={props.profissional.avaliacao}
-            quantidade={props.profissional.qtdAvaliacoes}
+            quantidade={props.profissional.qtdeAvaliacoes}
           />
         </div>
 
