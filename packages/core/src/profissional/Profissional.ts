@@ -4,5 +4,5 @@ export default interface Profissional {
   descricao: string;
   imagemURL: string;
   avaliacao: number;
-  qtdAvaliacoes: number;
+  qtdeAvaliacoes: number;
 }
