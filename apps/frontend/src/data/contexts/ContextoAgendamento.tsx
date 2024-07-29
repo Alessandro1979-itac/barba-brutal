@@ -1,7 +1,7 @@
-import { createContext, useCallback, useEffect, useState } from "react"
-import { DataUtils, Profissional, Servico } from "@barba/core"
-import useUsuario from "../hooks/useUsuario"
-import useAPI from "../hooks/useAPI"
+import { createContext, useCallback, useEffect, useState } from 'react'
+import { DataUtils, Profissional, Servico } from '@barba/core'
+import useUsuario from '../hooks/useUsuario'
+import useAPI from '../hooks/useAPI'
 
 interface ContextoAgendamentoProps {
   profissional: Profissional | null

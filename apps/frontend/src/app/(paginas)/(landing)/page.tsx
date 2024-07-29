@@ -1,10 +1,10 @@
 'use client'
 
-import NossosClientes from "@/src/components/cliente/NossosClientes";
-import TituloSlogan from "@/src/components/landing/TituloSlogan";
-import NossosProfissionais from "@/src/components/profissional/NossosProfissionais";
-import NossosServicos from "@/src/components/servico/NossosServicos";
-import ContainerComBackground from "@/src/components/shared/ContainerComBackground";
+import NossosClientes from '@/src/components/cliente/NossosClientes'
+import TituloSlogan from '@/src/components/landing/TituloSlogan'
+import NossosProfissionais from '@/src/components/profissional/NossosProfissionais'
+import NossosServicos from '@/src/components/servico/NossosServicos'
+import ContainerComBackground from '@/src/components/shared/ContainerComBackground'
 
 
 export default function Landing() {

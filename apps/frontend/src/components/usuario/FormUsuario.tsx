@@ -1,10 +1,10 @@
 'use client'
-import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import Image from "next/image";
-import useUsuario from "@/src/data/hooks/useUsuario";
-import { TelefoneUtils } from "@barba/core";
-import Logo from "../shared/Logo";
+import { useEffect, useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import Image from 'next/image'
+import useUsuario from '@/src/data/hooks/useUsuario'
+import { TelefoneUtils } from '@barba/core'
+import Logo from '../shared/Logo'
 
 export default function FormUsuario() {
   const [nome, setNome] = useState('')

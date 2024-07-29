@@ -1,6 +1,6 @@
 'use client'
-import { Suspense } from "react"
-import FormUsuario from "@/src/components/usuario/FormUsuario"
+import { Suspense } from 'react'
+import FormUsuario from '@/src/components/usuario/FormUsuario'
 
 export default function Page() {
   return (

@@ -1,4 +1,4 @@
-import { profissionais } from "@barba/core"
+import { profissionais } from '@barba/core'
 
 export default function useProfissionais() {
   return {

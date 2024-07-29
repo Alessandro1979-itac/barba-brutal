@@ -42,7 +42,7 @@ export default function Rodape() {
               <span>em {new Date().getFullYear()}</span>
             </div>
             <span className="hidden md:inline-block">-</span>
-            <span>Todos os direitos reservados</span>
+            <span>Todos os direitos reservados by Alemcar</span>
           </div>
         </div>
       </div>
