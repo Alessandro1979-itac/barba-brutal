@@ -1,8 +1,8 @@
 'use client'
 import { Profissional } from '@barba/core'
+import { useProfissionais } from '@barba/ui'
 import ProfissionalItem from '@/src/components/profissional/ProfissionalItem'
 import Titulo from '@/src/components/shared/Titulo'
-import useProfissionais from '@/src/data/hooks/useProfissionais'
 
 export default function NossosProfissionais() {
     const { profissionais } = useProfissionais()
