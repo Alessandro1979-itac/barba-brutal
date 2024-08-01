@@ -1,14 +1,29 @@
 import { TelefoneUtils } from '@barba/core'
-import { StyleSheet, Text, TextInput, Pressable, View, ImageBackground, Image } from 'react-native'
-import useUsuario from '../data/hooks/useUsuario'
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  Pressable,
+  View,
+  ImageBackground,
+  Image
+} from 'react-native'
 import React, { useEffect } from 'react'
+import useUsuario from '../data/hooks/useUsuario'
 import useFormUsuario from '../data/hooks/useFormUsuario'
 
 export default function Cadastro({ navigation }: any) {
     
   const { usuario } = useUsuario()
   const {
-    nome, setNome, email, setEmail, telefone, setTelefone, errors, cadastrar,
+    nome,
+    setNome,
+    email,
+    setEmail,
+    telefone,
+    setTelefone,
+    errors,
+    cadastrar,
   } = useFormUsuario()
 
   useEffect(() => {

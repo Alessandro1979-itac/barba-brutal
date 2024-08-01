@@ -1,7 +1,7 @@
 import React from 'react'
-import useUsuario from '@/src/data/hooks/useUsuario'
 import { TelefoneUtils } from '@barba/core'
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import useUsuario from '@/src/data/hooks/useUsuario'
 
 export default function Perfil({ navigation }: any) {
   const { usuario, sair } = useUsuario()

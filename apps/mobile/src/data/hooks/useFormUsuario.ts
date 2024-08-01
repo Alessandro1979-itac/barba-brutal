@@ -15,11 +15,13 @@ export default function useFormUsuario() {
     if (!nome) {
       errors.nome = 'Nome é obrigatório'
     }
+
     if (!email) {
       errors.email = 'E-mail é obrigatório'
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       errors.email = 'E-mail inválido'
     }
+    
     if (!telefone) {
       errors.telefone = 'Telefone é obrigatório'
     } else if (!/^\d{10,11}$/.test(telefone)) {
