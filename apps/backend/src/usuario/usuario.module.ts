@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { DbModule } from 'src/db/db.module';
 import { UsuarioMiddleware } from './usuario.middleware';
-import { UsuarioRepository } from './usuario.repository';
 import { UsuarioController } from './usuario.controller';
+import { DbModule } from 'src/db/db.module';
+import { UsuarioRepository } from './usuario.repository';
 import { BcryptProvider } from './bcrypt.provider';
 
 @Module({

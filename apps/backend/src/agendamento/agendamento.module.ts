@@ -1,7 +1,7 @@
 import { MiddlewareConsumer, Module } from '@nestjs/common';
-import { DbModule } from 'src/db/db.module';
 import { AgendamentoController } from './agendamento.controller';
 import { AgendamentoRepository } from './agendamento.repository';
+import { DbModule } from 'src/db/db.module';
 import { UsuarioModule } from 'src/usuario/usuario.module';
 import { UsuarioMiddleware } from 'src/usuario/usuario.middleware';
 

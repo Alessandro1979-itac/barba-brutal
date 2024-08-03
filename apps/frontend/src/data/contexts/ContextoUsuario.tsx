@@ -1,63 +1,52 @@
 'use client'
-import { createContext, useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { createContext } from 'react'
 import { Usuario } from '@barba/core'
-import useLocalStorage from '../hooks/useLocalStorage'
+import useSessao from '../hooks/useSessao'
+import useAPI from '../hooks/useAPI'
 
 export interface ContextoUsuarioProps {
-  carregando: boolean
-  usuario: Usuario | null
-  entrar: (usuario: Usuario) => Promise<void>
-  sair: () => void
+    carregando: boolean
+    usuario: Usuario | null
+    entrar: (usuario: Partial<Usuario>) => Promise<void>
+    registrar: (usuario: Usuario) => Promise<void>
+    sair: () => void
 }
 
 const ContextoUsuario = createContext<ContextoUsuarioProps>({} as any)
 
 export function ProvedorUsuario({ children }: any) {
-  const { get, set } = useLocalStorage()
-  const router = useRouter()
-  const [carregando, setCarregando] = useState(true)
-  const [usuario, setUsuario] = useState<Usuario | null>(null)
+    const { httpPost } = useAPI()
+    const { carregando, usuario, criarSessao, limparSessao } = useSessao()
+    const router = useRouter()
 
-  const carregarUsuario = useCallback(
-    function() {
-      try {
-        const usuarioLocal = get('usuario')
-        if (usuarioLocal) {
-          setUsuario(usuarioLocal)
-        }
-      } finally {
-        setCarregando(false)
-      }
-    },
-    [get]
-  )
+    async function entrar(usuario: Partial<Usuario>) {
+        const token = await httpPost('/usuario/login', usuario)
+        criarSessao(token)
+    }
 
-  async function entrar(usuario: Usuario) {
-    setUsuario(usuario)
-    set('usuario', usuario)
-  }
+    async function registrar(usuario: Usuario) {
+        await httpPost('/usuario/registrar', usuario)
+    }
 
-  function sair() {
-    router.push('/')
-    setUsuario(null)
-    set('usuario', null)
-  }
+    function sair() {
+        limparSessao()
+        router.push('/')
+    }
 
-  useEffect(() => carregarUsuario(), [carregarUsuario])
-
-  return (
-    <ContextoUsuario.Provider
-      value={{
-        carregando,
-        usuario,
-        entrar,
-        sair,
-      }}
-    >
-      { children }
-    </ContextoUsuario.Provider>
-  )
+    return (
+        <ContextoUsuario.Provider
+            value={{
+                carregando,
+                usuario,
+                entrar,
+                registrar,
+                sair,
+            }}
+        >
+            {children}
+        </ContextoUsuario.Provider>
+    )
 }
 
 export default ContextoUsuario

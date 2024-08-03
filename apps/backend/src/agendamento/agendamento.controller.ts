@@ -1,3 +1,5 @@
+import { Agendamento, ObterHorariosOcupados, Usuario } from '@barba/core';
+import { AgendamentoRepository } from './agendamento.repository';
 import {
   Body,
   Controller,
@@ -7,8 +9,6 @@ import {
   Param,
   Post,
 } from '@nestjs/common';
-import { AgendamentoRepository } from './agendamento.repository';
-import { Agendamento, ObterHorariosOcupados, Usuario } from '@barba/core';
 import { UsuarioLogado } from 'src/usuario/usuario.decorator';
 
 @Controller('agendamentos')
@@ -23,7 +23,6 @@ export class AgendamentoController {
     if (agendamento.usuario.id !== usuarioLogado.id) {
       throw new HttpException('Usuário não autorizado', 401);
     }
-
     return this.repo.criar(agendamento);
   }
 
@@ -60,7 +59,6 @@ export class AgendamentoController {
     if (!usuarioLogado.barbeiro) {
       throw new HttpException('Usuário não autorizado', 401);
     }
-
     await this.repo.excluir(+id);
   }
 }

@@ -1,5 +1,5 @@
-import { RepositorioUsuario, Usuario } from '@barba/core';
 import { Injectable } from '@nestjs/common';
+import { RepositorioUsuario, Usuario } from '@barba/core';
 import { PrismaService } from 'src/db/prisma.service';
 
 @Injectable()

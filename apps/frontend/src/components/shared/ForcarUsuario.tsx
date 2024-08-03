@@ -3,17 +3,17 @@ import { usePathname, useRouter } from 'next/navigation'
 import useUsuario from '@/src/data/hooks/useUsuario'
 
 export default function ForcarUsuario(props: any) {
-  const { carregando, usuario } = useUsuario()
-  const caminho = usePathname()
-  const router = useRouter()
+    const { carregando, usuario } = useUsuario()
+    const caminho = usePathname()
+    const router = useRouter()
 
-  function redirecionarPara(url: string) {
-    router.push(url)
-    return <div className="flex justify-center items-center h-screen">Direcionando...</div>
-  }
+    function redirecionarPara(url: string) {
+        router.push(url)
+        return <div className="flex justify-center items-center h-screen">Direcionando...</div>
+    }
 
-  if (!usuario?.email && carregando) return <div>Carregando...</div>
-  if (!usuario?.email) return redirecionarPara(`/entrar?destino=${caminho}`)
+    if (!usuario?.email && carregando) return <div>Carregando...</div>
+    if (!usuario?.email) return redirecionarPara(`/entrar?destino=${caminho}`)
 
-  return props.children
+    return props.children
 }

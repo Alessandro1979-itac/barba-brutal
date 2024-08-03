@@ -10,7 +10,7 @@ export class AgendamentoRepository implements RepositorioAgendamento {
     await this.prismaService.agendamento.create({
       data: {
         data: agendamento.data,
-        usuario: { connect: { id: agendamento.usuario.id} },
+        usuario: { connect: { id: agendamento.usuario.id } },
         profissional: { connect: { id: agendamento.profissional.id } },
         servicos: {
           connect: agendamento.servicos.map((servico) => ({ id: servico.id })),
@@ -59,10 +59,7 @@ export class AgendamentoRepository implements RepositorioAgendamento {
           lte: fimDoDia,
         },
       },
-      include: {
-        servicos: true,
-        usuario: true,
-      },
+      include: { servicos: true, usuario: true },
     });
 
     return resultado;
